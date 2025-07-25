@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
 import qs.Widgets
+import qs.Settings
 
 Scope {
     Variants {
@@ -9,6 +10,7 @@ Scope {
         PanelWindow {
             required property var modelData
             screen: modelData
+            color: Theme.backgroundPrimary
 
             implicitHeight: 30
 
