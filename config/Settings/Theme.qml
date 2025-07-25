@@ -10,6 +10,7 @@ Singleton {
     property string themeFile: Settings.settingsDir + "Theme.json"
 
     property alias backgroundPrimary: adapter.backgroundPrimary
+    property alias backgroundSecondary: adapter.backgroundSecondary
 
     property alias textPrimary: adapter.textPrimary
 
@@ -23,6 +24,7 @@ Singleton {
         JsonAdapter {
             id: adapter
             property string backgroundPrimary: "#282828"
+            property string backgroundSecondary: "#d65d0e"
 
             property string textPrimary: "#fbf1c7"
         }
