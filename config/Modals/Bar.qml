@@ -23,10 +23,33 @@ Scope {
             }
 
             Item {
+                anchors.left: parent.left
+                anchors.leftMargin: 5
+                height: Theme.barHeight
+                RowLayout {
+                    anchors.verticalCenter: parent.verticalCenter
+                    Clock {}
+                }
+            }
+
+            Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: Theme.barHeight
                 RowLayout {
                     anchors.verticalCenter: parent.verticalCenter
+                    Clock {}
+                }
+            }
+
+            Item {
+                anchors.right: parent.right
+                anchors.rightMargin: 5
+                height: Theme.barHeight
+                width: rightRow.width
+                RowLayout {
+                    id: rightRow
+                    anchors.verticalCenter: parent.verticalCenter
+                    layoutDirection: Qt.RightToLeft
                     Clock {}
                 }
             }
