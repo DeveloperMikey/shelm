@@ -6,11 +6,15 @@ import Quickshell.Io
 
 Singleton {
     id: root
-    property string shellName: "shelm"
-    property string settingsDir: (Quickshell.env("SHELM_CONFIG") || Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/"
-    property string settingsFile: settingsDir + "Settings.json"
+    readonly property string shellName: "shelm"
+    readonly property string settingsDir: (Quickshell.env("SHELM_CONFIG") || Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/"
+    readonly property string settingsFile: settingsDir + "Settings.json"
 
     property alias use12HourClock: adapter.use12HourClock
+
+    property alias barLeftWidgets: adapter.barLeftWidgets
+    property alias barMiddleWidgets: adapter.barMiddleWidgets
+    property alias barRightWidgets: adapter.barRightWidgets
 
     FileView {
         id: settingFileView
@@ -22,6 +26,10 @@ Singleton {
         JsonAdapter {
             id: adapter
             property bool use12HourClock: false
+
+            property var barLeftWidgets: []
+            property var barMiddleWidgets: ["Clock"]
+            property var barRightWidgets: []
         }
     }
 }

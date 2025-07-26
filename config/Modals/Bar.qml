@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -5,6 +6,21 @@ import qs.Widgets
 import qs.Settings
 
 Scope {
+    id: root
+    Component {
+        id: clockComponent
+        Clock {}
+    }
+
+    function getWidgetComponent(name) {
+        switch (name) {
+        case "Clock":
+            return clockComponent;
+        default:
+            return null;
+        }
+    }
+
     Variants {
         model: Quickshell.screens
 
@@ -26,18 +42,34 @@ Scope {
                 anchors.left: parent.left
                 anchors.leftMargin: 5
                 height: Theme.barHeight
+                width: leftRow.width
                 RowLayout {
+                    id: leftRow
                     anchors.verticalCenter: parent.verticalCenter
-                    Clock {}
+                    Repeater {
+                        model: Settings.barLeftWidgets
+                        delegate: Loader {
+                            required property string modelData
+                            sourceComponent: root.getWidgetComponent(modelData)
+                        }
+                    }
                 }
             }
 
             Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: Theme.barHeight
+                width: middleRow.width
                 RowLayout {
+                    id: middleRow
                     anchors.verticalCenter: parent.verticalCenter
-                    Clock {}
+                    Repeater {
+                        model: Settings.barMiddleWidgets
+                        delegate: Loader {
+                            required property string modelData
+                            sourceComponent: root.getWidgetComponent(modelData)
+                        }
+                    }
                 }
             }
 
@@ -50,7 +82,13 @@ Scope {
                     id: rightRow
                     anchors.verticalCenter: parent.verticalCenter
                     layoutDirection: Qt.RightToLeft
-                    Clock {}
+                    Repeater {
+                        model: Settings.barRightWidgets
+                        delegate: Loader {
+                            required property string modelData
+                            sourceComponent: root.getWidgetComponent(modelData)
+                        }
+                    }
                 }
             }
 
