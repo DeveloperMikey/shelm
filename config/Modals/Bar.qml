@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import qs.Services
 import qs.Widgets
 import qs.Settings
 
@@ -12,10 +13,20 @@ Scope {
         Clock {}
     }
 
+    Component {
+        id: batteryComponent
+        Loader {
+            active: BatteryService.batteryAvailable
+            sourceComponent: Battery {}
+        }
+    }
+
     function getWidgetComponent(name) {
         switch (name) {
         case "Clock":
             return clockComponent;
+        case "Battery":
+            return batteryComponent;
         default:
             return null;
         }

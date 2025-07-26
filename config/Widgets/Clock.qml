@@ -12,6 +12,7 @@ BarRectangle {
         spacing: Theme.contentSpacing
         Text {
             text: Time.time
+            font.pixelSize: Theme.font.size.normal
             color: Theme.textPrimary
             Layout.topMargin: 2
         }
@@ -22,6 +23,7 @@ BarRectangle {
             Layout.topMargin: 2
             sourceComponent: Text {
                 text: "•"
+                font.pixelSize: Theme.font.size.normal
                 color: Theme.textSecondary
             }
         }
@@ -32,6 +34,7 @@ BarRectangle {
             Layout.topMargin: 2
             sourceComponent: Text {
                 text: Time.day
+                font.pixelSize: Theme.font.size.normal
                 color: Theme.textPrimary
             }
         }
@@ -42,6 +45,7 @@ BarRectangle {
             Layout.topMargin: 2
             sourceComponent: Text {
                 id: dayOfMonthText
+                font.pixelSize: Theme.font.size.normal
                 text: Time.dayOfMonth
                 color: Theme.textPrimary
             }
