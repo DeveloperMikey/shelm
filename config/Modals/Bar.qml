@@ -100,7 +100,7 @@ Scope {
                 sourceComponent: Rectangle {
                     id: seperator
                     implicitHeight: 2
-                    color: Theme.backgroundSecondary
+                    color: Theme.seperatorColor
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right

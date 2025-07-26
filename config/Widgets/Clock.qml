@@ -3,12 +3,9 @@ import QtQuick.Layouts
 import qs.Modules
 import qs.Settings
 
-Rectangle {
+BarRectangle {
     id: root
-    color: "#504945"
-    implicitHeight: row.height + 4
-    implicitWidth: row.width + 10
-    radius: Theme.cornerRadius
+
     RowLayout {
         id: row
         anchors.centerIn: parent

@@ -10,7 +10,6 @@ Singleton {
     property string themeFile: Settings.settingsDir + "Theme.json"
 
     property alias backgroundPrimary: adapter.backgroundPrimary
-    property alias backgroundSecondary: adapter.backgroundSecondary
 
     property alias textPrimary: adapter.textPrimary
     property alias textSecondary: adapter.textSecondary
@@ -20,6 +19,9 @@ Singleton {
 
     property alias barHeight: adapter.barHeight
     property alias barSeperator: adapter.barSeperator
+    property alias seperatorColor: adapter.seperatorColor
+
+    property alias widgetBackground: adapter.widgetBackground
 
     property alias showDayOnBar: adapter.showDayOnBar
     property alias showDayOfMonthOnBar: adapter.showDayOfMonthOnBar
@@ -34,7 +36,6 @@ Singleton {
         JsonAdapter {
             id: adapter
             property string backgroundPrimary: "#282828"
-            property string backgroundSecondary: "#d65d0e"
 
             property string textPrimary: "#fbf1c7"
             property string textSecondary: "#a89984"
@@ -44,6 +45,9 @@ Singleton {
 
             property int barHeight: 30
             property bool barSeperator: true
+            property string seperatorColor: "#d65d0e"
+
+            property string widgetBackground: "#504945"
 
             property bool showDayOnBar: true
             property bool showDayOfMonthOnBar: true
