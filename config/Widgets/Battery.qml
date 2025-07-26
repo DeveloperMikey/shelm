@@ -7,27 +7,6 @@ import qs.Settings
 import qs.Services
 
 Rectangle {
-    /*
-    RowLayout {
-        anchors.centerIn: parent
-        Rectangle {
-            color: Theme.textPrimary
-            Layout.preferredWidth: 10
-            Layout.preferredHeight: 10
-        }
-
-        Text {
-            font.family: Theme.font.family.material
-            text: "battery_full"
-            font.pixelSize: Theme.font.size.normal
-            color: Theme.textPrimary
-        }
-        Text {
-            text: BatteryService.batteryLevel + "%"
-            color: Theme.textPrimary
-        }
-    }
-    */
     color: Theme.widgets.battery.backgroundColor
     anchors.centerIn: parent
     radius: Theme.cornerRadius
@@ -39,7 +18,7 @@ Rectangle {
         implicitWidth: parent.width * BatteryService.batteryLevel / 100
         radius: Theme.cornerRadius
         color: {
-            BatteryService.batteryLevel <= 30 ? Theme.widgets.battery.criticalColor : Theme.widgetBackground;
+            BatteryService.batteryLevel <= 30 ? Theme.widgets.battery.criticalColor : Theme.widgets.backgroundColor;
         }
     }
 

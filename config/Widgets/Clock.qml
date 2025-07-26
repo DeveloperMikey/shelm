@@ -18,7 +18,7 @@ BarRectangle {
         }
 
         Loader {
-            active: Theme.showDayOnBar | Theme.showDayOfMonthOnBar
+            active: Theme.widgets.clock.showDayOfWeek | Theme.widgets.clock.showDayOfMonth
             visible: active
             Layout.topMargin: 2
             sourceComponent: Text {
@@ -29,7 +29,7 @@ BarRectangle {
         }
 
         Loader {
-            active: Theme.showDayOnBar
+            active: Theme.widgets.clock.showDayOfWeek
             visible: active
             Layout.topMargin: 2
             sourceComponent: Text {
@@ -40,7 +40,7 @@ BarRectangle {
         }
 
         Loader {
-            active: Theme.showDayOfMonthOnBar
+            active: Theme.widgets.clock.showDayOfMonth
             visible: active
             Layout.topMargin: 2
             sourceComponent: Text {

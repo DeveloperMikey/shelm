@@ -9,7 +9,14 @@ Singleton {
         property string criticalColor: "#cc241d"
     }
 
+    component Clock: QtObject {
+        property bool showDayOfWeek: true
+        property bool showDayOfMonth: true
+    }
+
     component Widgets: QtObject {
+        property string backgroundColor: "#504945"
         property Battery battery: Battery {}
+        property Clock clock: Clock {}
     }
 }

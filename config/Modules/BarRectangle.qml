@@ -3,7 +3,7 @@ import qs.Settings
 
 Rectangle {
     id: root
-    color: Theme.widgetBackground
+    color: Theme.widgets.backgroundColor
     implicitHeight: layout.childrenRect.height + 4
     implicitWidth: layout.childrenRect.width + 10
     radius: Theme.cornerRadius

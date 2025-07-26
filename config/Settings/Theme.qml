@@ -24,11 +24,6 @@ Singleton {
     property alias barSeperator: adapter.barSeperator
     property alias seperatorColor: adapter.seperatorColor
 
-    property alias widgetBackground: adapter.widgetBackground
-
-    property alias showDayOnBar: adapter.showDayOnBar
-    property alias showDayOfMonthOnBar: adapter.showDayOfMonthOnBar
-
     component FontFamily: QtObject {
         property string sans: "IBM Plex Sans"
         property string mono: "JetBrains Mono NF"
@@ -72,8 +67,6 @@ Singleton {
             property int barHeight: 30
             property bool barSeperator: true
             property string seperatorColor: "#d65d0e"
-
-            property string widgetBackground: "#504945"
 
             property bool showDayOnBar: true
             property bool showDayOfMonthOnBar: true
