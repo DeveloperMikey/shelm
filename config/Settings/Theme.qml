@@ -39,7 +39,7 @@ Singleton {
             property string textPrimary: "#fbf1c7"
             property string textSecondary: "#a89984"
 
-            property int cornerRadius: 10
+            property int cornerRadius: 9
             property int contentSpacing: 2
 
             property int barHeight: 30

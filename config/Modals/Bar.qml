@@ -14,7 +14,7 @@ Scope {
             screen: modelData
             color: Theme.backgroundPrimary
 
-            implicitHeight: Theme.barHeight
+            implicitHeight: Theme.barHeight + (Theme.barSeperator ? 2 : 0)
 
             anchors {
                 top: true
@@ -22,9 +22,13 @@ Scope {
                 right: true
             }
 
-            RowLayout {
-                anchors.centerIn: parent
-                Clock {}
+            Item {
+                anchors.horizontalCenter: parent.horizontalCenter
+                height: Theme.barHeight
+                RowLayout {
+                    anchors.verticalCenter: parent.verticalCenter
+                    Clock {}
+                }
             }
 
             Loader {
