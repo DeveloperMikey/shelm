@@ -13,6 +13,16 @@ Singleton {
     property alias backgroundSecondary: adapter.backgroundSecondary
 
     property alias textPrimary: adapter.textPrimary
+    property alias textSecondary: adapter.textSecondary
+
+    property alias cornerRadius: adapter.cornerRadius
+    property alias contentSpacing: adapter.contentSpacing
+
+    property alias barHeight: adapter.barHeight
+    property alias barSeperator: adapter.barSeperator
+
+    property alias showDayOnBar: adapter.showDayOnBar
+    property alias showDayOfMonthOnBar: adapter.showDayOfMonthOnBar
 
     FileView {
         id: settingFileView
@@ -27,6 +37,16 @@ Singleton {
             property string backgroundSecondary: "#d65d0e"
 
             property string textPrimary: "#fbf1c7"
+            property string textSecondary: "#a89984"
+
+            property int cornerRadius: 10
+            property int contentSpacing: 2
+
+            property int barHeight: 30
+            property bool barSeperator: true
+
+            property bool showDayOnBar: true
+            property bool showDayOfMonthOnBar: true
         }
     }
 }

@@ -14,7 +14,7 @@ Scope {
             screen: modelData
             color: Theme.backgroundPrimary
 
-            implicitHeight: 30
+            implicitHeight: Theme.barHeight
 
             anchors {
                 top: true
@@ -22,17 +22,24 @@ Scope {
                 right: true
             }
 
-            Clock {
+            RowLayout {
                 anchors.centerIn: parent
+                Clock {}
             }
 
-            Rectangle {
-                id: seperator
-                implicitHeight: 2
-                color: Theme.backgroundSecondary
+            Loader {
+                active: Theme.barSeperator
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
+                sourceComponent: Rectangle {
+                    id: seperator
+                    implicitHeight: 2
+                    color: Theme.backgroundSecondary
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                }
             }
         }
     }
