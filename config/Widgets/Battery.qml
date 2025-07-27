@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import qs.Settings
 import qs.Services
 import qs.Modules
+import Quickshell.Hyprland
 
 Rectangle {
     color: Theme.widgets.battery.backgroundColor
@@ -31,7 +32,6 @@ Rectangle {
         }
         StyledText {
             text: BatteryService.batteryLevel + "%"
-            Layout.topMargin: 2
         }
     }
 }

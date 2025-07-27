@@ -21,12 +21,19 @@ Scope {
         }
     }
 
+    Component {
+        id: dashboardComponent
+        Dashboard {}
+    }
+
     function getWidgetComponent(name) {
         switch (name) {
         case "Clock":
             return clockComponent;
         case "Battery":
             return batteryComponent;
+        case "Dashboard":
+            return dashboardComponent;
         default:
             return null;
         }
