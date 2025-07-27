@@ -10,10 +10,8 @@ BarRectangle {
         id: row
         anchors.centerIn: parent
         spacing: Theme.contentSpacing
-        Text {
+        StyledText {
             text: Time.time
-            font.pixelSize: Theme.font.size.normal
-            color: Theme.textPrimary
             Layout.topMargin: 2
         }
 
@@ -21,9 +19,8 @@ BarRectangle {
             active: Theme.widgets.clock.showDayOfWeek | Theme.widgets.clock.showDayOfMonth
             visible: active
             Layout.topMargin: 2
-            sourceComponent: Text {
+            sourceComponent: StyledText {
                 text: "•"
-                font.pixelSize: Theme.font.size.normal
                 color: Theme.textSecondary
             }
         }
@@ -32,10 +29,8 @@ BarRectangle {
             active: Theme.widgets.clock.showDayOfWeek
             visible: active
             Layout.topMargin: 2
-            sourceComponent: Text {
+            sourceComponent: StyledText {
                 text: Time.day
-                font.pixelSize: Theme.font.size.normal
-                color: Theme.textPrimary
             }
         }
 
@@ -43,11 +38,9 @@ BarRectangle {
             active: Theme.widgets.clock.showDayOfMonth
             visible: active
             Layout.topMargin: 2
-            sourceComponent: Text {
+            sourceComponent: StyledText {
                 id: dayOfMonthText
-                font.pixelSize: Theme.font.size.normal
                 text: Time.dayOfMonth
-                color: Theme.textPrimary
             }
         }
     }

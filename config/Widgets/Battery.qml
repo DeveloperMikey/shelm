@@ -1,10 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
-import Quickshell.Widgets
-import Quickshell
 import qs.Settings
 import qs.Services
+import qs.Modules
 
 Rectangle {
     color: Theme.widgets.battery.backgroundColor
@@ -26,18 +24,15 @@ Rectangle {
         id: row
         anchors.centerIn: parent
         spacing: 1
-        Text {
+        StyledText {
             text: "electric_bolt"
             Layout.topMargin: 1
             font.family: Theme.font.family.material
-            color: Theme.textPrimary
             visible: BatteryService.isCharging
         }
-        Text {
+        StyledText {
             text: BatteryService.batteryLevel + "%"
             Layout.topMargin: 2
-            font.pixelSize: Theme.font.size.normal
-            color: Theme.textPrimary
         }
     }
 }
