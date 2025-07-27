@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     quickshell = {
-      url = "github:quickshell-mirror/quickshell/db77c71c216530159c2dcf5b269ebb4706b2e2dd";
+      url = "github:quickshell-mirror/quickshell/a5431dd02dc23d9ef1680e67777fed00fe5f7cda";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
