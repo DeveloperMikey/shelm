@@ -24,10 +24,9 @@ Rectangle {
         id: row
         anchors.centerIn: parent
         spacing: 1
-        StyledText {
+        Icon {
             text: "electric_bolt"
             Layout.topMargin: 1
-            font.family: Theme.font.family.material
             visible: BatteryService.isCharging
         }
         StyledText {
