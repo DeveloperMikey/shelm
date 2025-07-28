@@ -3,5 +3,5 @@ import qs.Modals
 
 Scope {
     Bar {}
-    OSD {}
+    VolumeOSD {}
 }

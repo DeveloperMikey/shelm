@@ -5,13 +5,15 @@ Rectangle {
     id: root
     required property real value
     required property real maxValue
+    required property color fillColor
+    required property color overflowColor
 
     color: Theme.widgets.backgroundColor
     anchors.fill: parent
     radius: Theme.cornerRadius
 
     Rectangle {
-        color: "#d5c4a1"
+        color: root.fillColor
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -20,17 +22,22 @@ Rectangle {
 
         Behavior on implicitHeight {
             NumberAnimation {
-                duration: 30
+                duration: 20
             }
         }
+    }
 
-        Rectangle {
-            color: "#cc241d"
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            radius: Theme.cornerRadius
-            implicitHeight: parent.height * ((root.value / root.maxValue) - 1)
+    Rectangle {
+        color: root.overflowColor
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        radius: Theme.cornerRadius
+        implicitHeight: parent.height * ((root.value / root.maxValue) - 1)
+        Behavior on implicitHeight {
+            NumberAnimation {
+                duration: 40
+            }
         }
     }
 }
