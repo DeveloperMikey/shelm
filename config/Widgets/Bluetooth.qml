@@ -7,7 +7,7 @@ BarRectangle {
     MouseArea {
         id: mouse
         anchors.fill: parent
-        onPressed: console.log("s")
+        onPressed: Quickshell.execDetached("overskride")
     }
     Icon {
         anchors.centerIn: parent
