@@ -1,16 +1,18 @@
 import QtQuick
+import QtQuick.Layouts
 import qs.Settings
 
 Rectangle {
     id: root
     color: Theme.widgets.backgroundColor
-    implicitHeight: layout.childrenRect.height + 4
-    implicitWidth: layout.childrenRect.width + 10
+    implicitHeight: layout.height + 4
+    implicitWidth: layout.width + 10
     radius: Theme.cornerRadius
     visible: layout.visible
 
-    Item {
+    RowLayout {
         id: layout
+        spacing: 0
         anchors.centerIn: parent
     }
 

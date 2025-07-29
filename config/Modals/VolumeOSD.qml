@@ -7,14 +7,14 @@ import qs.Modules
 
 OSDTemplate {
     id: root
-    muted: AudioService.sink.audio.muted
+    muted: AudioService.sink?.audio.muted ?? false
     maxValue: 1
     maxOverflow: 1.4
-    fillColor: AudioService.sink.audio.muted ? "#fb4934" : "#83a598"
-    overflowColor: AudioService.sink.audio.muted ? "#cc241d" : "#458588"
+    fillColor: AudioService.sink?.audio.muted ? "#fb4934" : "#83a598"
+    overflowColor: AudioService.sink?.audio.muted ? "#cc241d" : "#458588"
 
-    value: AudioService.sink.audio.volume
-    screen: Quickshell.screens[Hyprland.focusedMonitor.id]
+    value: AudioService.sink?.audio.volume ?? 0
+    screen: Quickshell.screens[Hyprland.focusedMonitor?.id]
 
     Connections {
         target: root

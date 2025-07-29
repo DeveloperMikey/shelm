@@ -15,7 +15,7 @@ Scope {
     required property real value
     required property real maxValue
     required property real maxOverflow
-    required property bool muted
+    property bool muted: false
     property bool started: false
     property bool shouldShowOSD: false
 

@@ -11,6 +11,9 @@ Singleton {
     readonly property bool sinkMuted: sink?.audio?.muted ?? false
     readonly property real sinkVolume: sink?.audio?.volume ?? 0
 
+    readonly property bool sourceMuted: source?.audio?.volume ?? false
+    readonly property bool sourceVolume: sink?.audio?.volume ?? 0
+
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
     }

@@ -26,12 +26,19 @@ Scope {
         Dashboard {}
     }
 
+    Component {
+        id: bluetoothComponent
+        Bluetooth {}
+    }
+
     function getWidgetComponent(name) {
         switch (name) {
         case "Clock":
             return clockComponent;
         case "Battery":
             return batteryComponent;
+        case "Bluetooth":
+            return bluetoothComponent;
         case "Dashboard":
             return dashboardComponent;
         default:
@@ -49,6 +56,7 @@ Scope {
             color: Theme.backgroundPrimary
 
             implicitHeight: Theme.barHeight + (Theme.barSeperator ? 2 : 0)
+            Component.onCompleted: console.log(modelData)
 
             anchors {
                 top: true
