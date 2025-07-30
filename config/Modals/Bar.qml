@@ -31,6 +31,11 @@ Scope {
         Bluetooth {}
     }
 
+    Component {
+        id: networkComponent
+        Network {}
+    }
+
     function getWidgetComponent(name) {
         switch (name) {
         case "Clock":
@@ -41,6 +46,8 @@ Scope {
             return bluetoothComponent;
         case "Dashboard":
             return dashboardComponent;
+        case "Network":
+            return networkComponent;
         default:
             return null;
         }

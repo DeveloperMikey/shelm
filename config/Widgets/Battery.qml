@@ -4,6 +4,7 @@ import qs.Settings
 import qs.Services
 import qs.Modules
 import Quickshell.Hyprland
+import Quickshell.Services.UPower
 
 Rectangle {
     color: Theme.widgets.battery.backgroundColor
@@ -25,6 +26,11 @@ Rectangle {
         id: row
         anchors.centerIn: parent
         spacing: 1
+        Icon {
+            text: "power"
+            Layout.topMargin: 1
+            visible: !BatteryService.isCharging && !UPower.onBattery
+        }
         Icon {
             text: "electric_bolt"
             Layout.topMargin: 1
