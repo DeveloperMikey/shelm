@@ -2,63 +2,11 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.Services
-import qs.Widgets
 import qs.Settings
+import qs.Modules
 
 Scope {
     id: root
-    Component {
-        id: clockComponent
-        Clock {}
-    }
-
-    Component {
-        id: batteryComponent
-        Loader {
-            active: BatteryService.batteryAvailable
-            sourceComponent: Battery {}
-        }
-    }
-
-    Component {
-        id: dashboardComponent
-        Dashboard {}
-    }
-
-    Component {
-        id: bluetoothComponent
-        Bluetooth {}
-    }
-
-    Component {
-        id: networkComponent
-        Network {}
-    }
-
-    Component {
-        id: trayComponent
-        Tray {}
-    }
-
-    function getWidgetComponent(name) {
-        switch (name) {
-        case "Clock":
-            return clockComponent;
-        case "Battery":
-            return batteryComponent;
-        case "Bluetooth":
-            return bluetoothComponent;
-        case "Dashboard":
-            return dashboardComponent;
-        case "Network":
-            return networkComponent;
-        case "Tray":
-            return trayComponent;
-        default:
-            return null;
-        }
-    }
 
     Variants {
         model: Quickshell.screens
@@ -82,16 +30,10 @@ Scope {
                 anchors.leftMargin: 5
                 height: Theme.barHeight
                 width: leftRow.width
-                RowLayout {
+                BarWidgetRow {
                     id: leftRow
-                    anchors.verticalCenter: parent.verticalCenter
-                    Repeater {
-                        model: Settings.barLeftWidgets
-                        delegate: Loader {
-                            required property string modelData
-                            sourceComponent: root.getWidgetComponent(modelData)
-                        }
-                    }
+                    widgets: Settings.barLeftWidgets
+                    barRef: bar
                 }
             }
 
@@ -99,16 +41,10 @@ Scope {
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: Theme.barHeight
                 width: middleRow.width
-                RowLayout {
+                BarWidgetRow {
                     id: middleRow
-                    anchors.verticalCenter: parent.verticalCenter
-                    Repeater {
-                        model: Settings.barMiddleWidgets
-                        delegate: Loader {
-                            required property string modelData
-                            sourceComponent: root.getWidgetComponent(modelData)
-                        }
-                    }
+                    widgets: Settings.barMiddleWidgets
+                    barRef: bar
                 }
             }
 
@@ -117,17 +53,10 @@ Scope {
                 anchors.rightMargin: 5
                 height: Theme.barHeight
                 width: rightRow.width
-                RowLayout {
+                BarWidgetRow {
                     id: rightRow
-                    anchors.verticalCenter: parent.verticalCenter
-                    layoutDirection: Qt.RightToLeft
-                    Repeater {
-                        model: Settings.barRightWidgets
-                        delegate: Loader {
-                            required property string modelData
-                            sourceComponent: root.getWidgetComponent(modelData)
-                        }
-                    }
+                    widgets: Settings.barRightWidgets
+                    barRef: bar
                 }
             }
 

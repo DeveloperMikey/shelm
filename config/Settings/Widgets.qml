@@ -16,7 +16,8 @@ Singleton {
 
     component Widgets: QtObject {
         property color backgroundColor: "#504945"
-        property color hoverColor: "#665c54"
+        property string borderColor: "#282828"
+        property string hoverBorderColor: "#d65d0e"
         property int minimumHeight: 20
         property Battery battery: Battery {}
         property Clock clock: Clock {}
