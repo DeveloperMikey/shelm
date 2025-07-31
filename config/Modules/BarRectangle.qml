@@ -7,8 +7,8 @@ Rectangle {
     property bool clickable: false
     property bool padding: true
     color: Theme.widgets.backgroundColor
-    implicitHeight: Math.max(Theme.widgets.minimumHeight, layout.height + (padding ? 4 : 0))
-    implicitWidth: layout.width + (padding ? 10 : 0)
+    implicitHeight: Math.max(Theme.widgets.minimumHeight, layout.height + (padding ? 5 : 0))
+    implicitWidth: layout.width + (padding ? 12 : 8)
     radius: Theme.cornerRadius
     visible: layout.visible
 

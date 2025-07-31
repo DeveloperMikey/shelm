@@ -33,9 +33,9 @@ Singleton {
     component FontSize: QtObject {
         property int small: 11
         property int smaller: 12
-        property int normal: 13
-        property int larger: 15
-        property int large: 18
+        property int normal: 15
+        property int larger: 18
+        property int large: 22
         property int extraLarge: 28
     }
 

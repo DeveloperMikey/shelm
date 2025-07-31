@@ -1,7 +1,6 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
-import QtQuick.Layouts
 import qs.Settings
 import qs.Modules
 
@@ -55,6 +54,7 @@ Scope {
                 width: rightRow.width
                 BarWidgetRow {
                     id: rightRow
+                    layoutDirection: Qt.RightToLeft
                     widgets: Settings.barRightWidgets
                     barRef: bar
                 }

@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.Settings
@@ -67,6 +68,7 @@ Loader {
         BatteryHover {
             visible: mouse.containsMouse
             anchor.window: root.bar
+            anchor.item: battery
         }
 
         MouseArea {

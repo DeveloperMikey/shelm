@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.Widgets
-import qs.Services
 
 RowLayout {
     id: root
@@ -57,7 +56,6 @@ RowLayout {
     required property var widgets
     required property var barRef
     anchors.verticalCenter: parent.verticalCenter
-    layoutDirection: Qt.RightToLeft
     /*
     Repeater {
         model: root.widgets

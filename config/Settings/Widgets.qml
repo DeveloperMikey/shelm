@@ -18,7 +18,7 @@ Singleton {
         property color backgroundColor: "#504945"
         property string borderColor: "#282828"
         property string hoverBorderColor: "#d65d0e"
-        property int minimumHeight: 20
+        property int minimumHeight: 24
         property Battery battery: Battery {}
         property Clock clock: Clock {}
     }
