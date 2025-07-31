@@ -27,6 +27,11 @@ Rectangle {
         anchors.centerIn: parent
         spacing: 1
         Icon {
+            text: "south"
+            Layout.topMargin: 1
+            visible: UPower.onBattery
+        }
+        Icon {
             text: "power"
             Layout.topMargin: 1
             visible: !BatteryService.isCharging && !UPower.onBattery
