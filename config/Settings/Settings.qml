@@ -29,7 +29,7 @@ Singleton {
 
             property var barLeftWidgets: []
             property var barMiddleWidgets: ["Clock"]
-            property var barRightWidgets: ["Network", "Bluetooth", "Battery"]
+            property var barRightWidgets: ["Network", "Bluetooth", "Battery", "Tray"]
         }
     }
 }

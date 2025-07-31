@@ -16,6 +16,7 @@ Singleton {
 
     component Widgets: QtObject {
         property string backgroundColor: "#504945"
+        property int minimumHeight: 20
         property Battery battery: Battery {}
         property Clock clock: Clock {}
     }

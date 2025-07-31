@@ -36,6 +36,11 @@ Scope {
         Network {}
     }
 
+    Component {
+        id: trayComponent
+        Tray {}
+    }
+
     function getWidgetComponent(name) {
         switch (name) {
         case "Clock":
@@ -48,6 +53,8 @@ Scope {
             return dashboardComponent;
         case "Network":
             return networkComponent;
+        case "Tray":
+            return trayComponent;
         default:
             return null;
         }

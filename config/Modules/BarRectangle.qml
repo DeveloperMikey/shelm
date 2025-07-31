@@ -5,7 +5,7 @@ import qs.Settings
 Rectangle {
     id: root
     color: Theme.widgets.backgroundColor
-    implicitHeight: layout.height + 4
+    implicitHeight: Math.max(Theme.widgets.minimumHeight, layout.height + 4)
     implicitWidth: layout.width + 10
     radius: Theme.cornerRadius
     visible: layout.visible
