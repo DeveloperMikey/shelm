@@ -3,14 +3,17 @@ import Quickshell
 import qs.Modules
 
 BarRectangle {
-    Component.onCompleted: console.log(width)
+    id: root
+
+    clickable: true
+    Icon {
+        text: "bluetooth"
+    }
+
     MouseArea {
         id: mouse
+        parent: root
         anchors.fill: parent
         onPressed: Quickshell.execDetached("overskride")
-    }
-    Icon {
-        anchors.centerIn: parent
-        text: "bluetooth"
     }
 }

@@ -8,7 +8,6 @@ BarRectangle {
 
     RowLayout {
         id: row
-        anchors.centerIn: parent
         spacing: Theme.contentSpacing
         StyledText {
             text: Time.time

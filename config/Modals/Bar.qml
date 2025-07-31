@@ -70,7 +70,6 @@ Scope {
             color: Theme.backgroundPrimary
 
             implicitHeight: Theme.barHeight + (Theme.barSeperator ? 2 : 0)
-            Component.onCompleted: console.log(modelData)
 
             anchors {
                 top: true

@@ -3,14 +3,17 @@ import Quickshell
 import qs.Modules
 
 BarRectangle {
-    Component.onCompleted: console.log(width)
+    id: root
+
+    clickable: true
+    Icon {
+        text: "wifi"
+    }
+
     MouseArea {
         id: mouse
+        parent: root
         anchors.fill: parent
         onPressed: Quickshell.execDetached("nm-connection-editor")
-    }
-    Icon {
-        anchors.centerIn: parent
-        text: "wifi"
     }
 }
