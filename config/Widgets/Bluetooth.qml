@@ -4,6 +4,7 @@ import qs.Modules
 
 BarRectangle {
     id: root
+    required property var bar
 
     clickable: true
     Icon {

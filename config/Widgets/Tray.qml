@@ -6,6 +6,8 @@ import qs.Modules
 import qs.Settings
 
 BarRectangle {
+    required property var bar
+
     visible: items.count > 0
     RowLayout {
         property var systemTray: SystemTray

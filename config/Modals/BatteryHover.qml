@@ -1,6 +1,8 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import qs.Settings
+import qs.Panels
 import qs.Services
 import qs.Modules
 
@@ -16,20 +18,10 @@ Popup {
         return (days > 0 ? days + "d " : "") + (hours > 0 ? hours + "h " : "") + (minutes > 0 ? minutes + "m" : "");
     }
 
-    color: "transparent"
-    implicitWidth: rect.width
-    implicitHeight: rect.height
-
-    Rectangle {
-        id: rect
-        anchors.centerIn: parent
-        color: Theme.widgets.backgroundColor
-        radius: Theme.cornerRadius
-        width: text.contentWidth + 10
-        height: text.contentHeight + 5
+    RowLayout {
         StyledText {
             id: text
-            anchors.centerIn: parent
+            Layout.margins: 4
             text: root.durationString()
         }
     }

@@ -5,6 +5,7 @@ import qs.Settings
 
 BarRectangle {
     id: root
+    required property var bar
 
     RowLayout {
         id: row
