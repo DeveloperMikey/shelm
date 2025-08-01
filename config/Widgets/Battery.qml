@@ -66,8 +66,7 @@ Loader {
         }
 
         BatteryHover {
-            visible: mouse.containsMouse
-            anchor.window: root.bar
+            visible: mouse.containsMouse && (BatteryService.isCharging || UPower.onBattery)
             anchor.item: battery
         }
 
