@@ -8,6 +8,10 @@
       url = "github:quickshell-mirror/quickshell/a5431dd02dc23d9ef1680e67777fed00fe5f7cda";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    app2unit = {
+      url = "github:soramanew/app2unit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -15,6 +19,7 @@
     nixpkgs,
     flake-utils,
     quickshell,
+    app2unit,
     ...
   }:
     flake-utils.lib.eachDefaultSystem (
@@ -29,6 +34,7 @@
             buildInputs = [
               pkgs.coreutils
               quickshell.packages.x86_64-linux.default
+              app2unit.packages.${pkgs.system}.default
 
               (pkgs.writeShellScriptBin "shelm" ''
                 exec ${quickshell.packages.${system}.default}/bin/quickshell -c $(realpath ./config)
@@ -42,6 +48,7 @@
           src = ./config;
           buildInputs = [
             pkgs.makeWrapper
+            app2unit.packages.${pkgs.system}.default
           ];
           installPhase = ''
             mkdir -p $out/bin

@@ -4,7 +4,7 @@ import qs.Settings
 import qs.Services
 import qs.Modules
 
-PopupWindow {
+Popup {
     id: root
 
     property int seconds: BatteryService.timeRemaining
@@ -16,9 +16,6 @@ PopupWindow {
         return (days > 0 ? days + "d " : "") + (hours > 0 ? hours + "h " : "") + (minutes > 0 ? minutes + "m" : "");
     }
 
-    anchor.margins.top: Theme.barHeight
-    anchor.margins.left: (anchor.item.width - width) / 2
-    anchor.adjustment: PopupAdjustment.Slide
     color: "transparent"
     implicitWidth: rect.width
     implicitHeight: rect.height

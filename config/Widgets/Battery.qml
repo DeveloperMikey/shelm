@@ -66,7 +66,13 @@ Loader {
         }
 
         BatteryHover {
-            visible: mouse.containsMouse && (BatteryService.isCharging || UPower.onBattery)
+            visible: mouse.containsMouse && (BatteryService.isCharging || UPower.onBattery) && !menu.visible
+            anchor.item: battery
+        }
+
+        BatteryMenu {
+            id: menu
+            open: false
             anchor.item: battery
         }
 
@@ -74,6 +80,7 @@ Loader {
             id: mouse
             anchors.fill: parent
             hoverEnabled: true
+            onPressed: menu.open = !menu.open
         }
     }
 }
