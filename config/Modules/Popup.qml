@@ -20,9 +20,12 @@ PopupWindow {
         if (open) {
             visible = true;
             grab.active = true;
+            if (openFor > 0)
+                timer.restart();
         }
-        if (openFor > 0)
-            timer.restart();
+        if (!open) {
+            grab.active = false;
+        }
     }
 
     implicitWidth: menu.width
@@ -66,6 +69,7 @@ PopupWindow {
 
     HyprlandFocusGrab {
         id: grab
+        active: false
         windows: [root]
         onActiveChanged: {
             if (!active)

@@ -19,7 +19,7 @@ Popup {
         StyledText {
             id: text
             Layout.margins: 4
-            text: root.display
+            text: "test"
         }
     }
 }
