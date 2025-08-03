@@ -8,6 +8,7 @@ import qs.Modules
 PopupWindow {
     id: root
     property bool open: false
+    property bool grabFocus: false
     property int openFor: 0
 
     color: "transparent"
@@ -19,7 +20,8 @@ PopupWindow {
     onOpenChanged: {
         if (open) {
             visible = true;
-            grab.active = true;
+            if (grabFocus)
+                grab.active = true;
             if (openFor > 0)
                 timer.restart();
         }

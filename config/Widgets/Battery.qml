@@ -66,7 +66,7 @@ Loader {
         }
 
         BatteryHover {
-            open: mouse.containsMouse && (BatteryService.isCharging || UPower.onBattery) && !menu.open
+            open: mouse.containsMouse && (BatteryService.isCharging || UPower.onBattery)
             anchor.item: battery
         }
 
