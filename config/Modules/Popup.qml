@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Hyprland
 import qs.Settings
 import qs.Modules
 
@@ -16,8 +17,10 @@ PopupWindow {
     anchor.adjustment: PopupAdjustment.Slide
 
     onOpenChanged: {
-        if (open)
+        if (open) {
             visible = true;
+            grab.active = true;
+        }
         if (openFor > 0)
             timer.restart();
     }
@@ -58,6 +61,15 @@ PopupWindow {
             } else {
                 timer.restart();
             }
+        }
+    }
+
+    HyprlandFocusGrab {
+        id: grab
+        windows: [root]
+        onActiveChanged: {
+            if (!active)
+                root.open = false;
         }
     }
 
