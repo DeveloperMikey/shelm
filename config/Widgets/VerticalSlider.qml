@@ -1,3 +1,4 @@
+import Quickshell.Widgets
 import QtQuick
 import qs.Settings
 
@@ -12,17 +13,24 @@ Rectangle {
     anchors.fill: parent
     radius: Theme.cornerRadius
 
-    Rectangle {
-        color: root.fillColor
+    ClippingRectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         radius: Theme.cornerRadius
-        implicitHeight: Math.min(parent.height * (root.value / root.maxValue), parent.height)
+        implicitHeight: parent.height
+        color: "transparent"
+        Rectangle {
+            color: root.fillColor
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            implicitHeight: Math.min(parent.height * (root.value / root.maxValue), parent.height)
 
-        Behavior on implicitHeight {
-            NumberAnimation {
-                duration: 20
+            Behavior on implicitHeight {
+                NumberAnimation {
+                    duration: 20
+                }
             }
         }
     }
