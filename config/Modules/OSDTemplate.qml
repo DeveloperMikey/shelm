@@ -88,7 +88,7 @@ Scope {
     Timer {
         id: startupTimer
 
-        interval: 50
+        interval: 1000
         onTriggered: root.started = true
     }
 }
