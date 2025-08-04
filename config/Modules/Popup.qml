@@ -53,7 +53,8 @@ PopupWindow {
             NumberAnimation {
                 duration: 150
                 easing.type: Easing.OutCubic
-                onStopped: root.visible = root.open
+                onRunningChanged: if (!running)
+                    root.visible = root.open
             }
         }
     }
@@ -63,7 +64,7 @@ PopupWindow {
         onHoveredChanged: {
             if (hovered) {
                 timer.stop();
-            } else {
+            } else if (root.openFor > 0) {
                 timer.restart();
             }
         }
