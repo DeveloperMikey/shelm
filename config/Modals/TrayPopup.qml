@@ -3,4 +3,6 @@ import qs.Modules
 
 Popup {
     id: root
+
+    RowLayout {}
 }

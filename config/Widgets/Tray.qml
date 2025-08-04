@@ -58,9 +58,7 @@ BarRectangle {
                             } else if (mouse.button === Qt.MiddleButton) {
                                 item.modelData.secondaryActivate && item.modelData.secondaryActivate();
                             } else if (mouse.button === Qt.RightButton) {}
-                            console.log("clicked")
                         }
-                        onContainsMouseChanged: console.log("mouse: " + containsMouse)
                     }
 
                     TrayTooltip {
@@ -69,7 +67,6 @@ BarRectangle {
                         anchor.item: icon
                         title: item.modelData.tooltipTitle || item.modelData.title
                         description: item.modelData.tooltipDescription
-                        onOpenChanged: console.log("open: " + open)
                     }
 
                     Behavior on width {
