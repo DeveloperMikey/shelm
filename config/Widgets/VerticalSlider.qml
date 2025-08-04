@@ -35,16 +35,23 @@ Rectangle {
         }
     }
 
-    Rectangle {
-        color: root.overflowColor
+    ClippingRectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         radius: Theme.cornerRadius
-        implicitHeight: parent.height * ((root.value / root.maxValue) - 1)
-        Behavior on implicitHeight {
-            NumberAnimation {
-                duration: 40
+        implicitHeight: parent.height
+        color: "transparent"
+        Rectangle {
+            color: root.overflowColor
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            implicitHeight: parent.height * ((root.value / root.maxValue) - 1)
+            Behavior on implicitHeight {
+                NumberAnimation {
+                    duration: 40
+                }
             }
         }
     }
