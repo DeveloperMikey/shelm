@@ -1,8 +1,10 @@
+pragma ComponentBehavior: Bound
 import QtQuick.Layouts
 import QtQuick
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import qs.Modules
+import qs.Modals
 import qs.Settings
 
 BarRectangle {
@@ -16,13 +18,15 @@ BarRectangle {
             id: items
             model: SystemTray.items
             delegate: Item {
+                id: item
+                required property var modelData
                 width: Theme.widgets.minimumHeight - 4
                 height: Theme.widgets.minimumHeight - 4
                 IconImage {
                     id: icon
                     asynchronous: true
                     source: {
-                        let icon = modelData?.icon || "";
+                        let icon = item.modelData?.icon || "";
                         if (!icon)
                             return "";
                         // Process icon path
@@ -33,8 +37,8 @@ BarRectangle {
                         }
                         return icon;
                     }
-                    width: Theme.widgets.minimumHeight - (mouse.containsMouse ? 1 : 4)
-                    height: Theme.widgets.minimumHeight - (mouse.containsMouse ? 1 : 4)
+                    width: Theme.widgets.minimumHeight - 2
+                    height: Theme.widgets.minimumHeight - 2
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenterOffset: 1
@@ -43,7 +47,29 @@ BarRectangle {
                         id: mouse
                         anchors.fill: parent
                         hoverEnabled: true
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
                         anchors.verticalCenterOffset: 2
+
+                        onClicked: mouse => {
+                            if (mouse.button === Qt.LeftButton) {
+                                if (!item.modelData.onlyMenu) {
+                                    item.modelData.activate();
+                                }
+                            } else if (mouse.button === Qt.MiddleButton) {
+                                item.modelData.secondaryActivate && item.modelData.secondaryActivate();
+                            } else if (mouse.button === Qt.RightButton) {}
+                            console.log("clicked")
+                        }
+                        onContainsMouseChanged: console.log("mouse: " + containsMouse)
+                    }
+
+                    TrayTooltip {
+                        id: tooltip
+                        open: mouse.containsMouse
+                        anchor.item: icon
+                        title: item.modelData.tooltipTitle || item.modelData.title
+                        description: item.modelData.tooltipDescription
+                        onOpenChanged: console.log("open: " + open)
                     }
 
                     Behavior on width {
