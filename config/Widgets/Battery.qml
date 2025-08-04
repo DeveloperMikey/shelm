@@ -1,11 +1,12 @@
 pragma ComponentBehavior: Bound
+import Quickshell.Widgets
+import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
 import qs.Settings
 import qs.Services
 import qs.Modules
 import qs.Modals
-import Quickshell.Services.UPower
 
 Loader {
     id: root
@@ -29,15 +30,23 @@ Loader {
             }
         }
 
-        Rectangle {
+        ClippingRectangle {
+            radius: Theme.cornerRadius
             implicitHeight: parent.height - 2
-            implicitWidth: (parent.width * BatteryService.batteryLevel / 100) - 1
+            implicitWidth: parent.width - 2
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 1
-            radius: Theme.cornerRadius
-            color: {
-                BatteryService.batteryLevel <= 30 ? Theme.widgets.battery.criticalColor : Theme.widgets.backgroundColor;
+            color: "transparent"
+            Rectangle {
+                implicitWidth: (parent.width * BatteryService.batteryLevel / 100) - 1
+                implicitHeight: parent.height
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: 1
+                color: {
+                    BatteryService.batteryLevel <= 30 ? Theme.widgets.battery.criticalColor : Theme.widgets.backgroundColor;
+                }
             }
         }
 
