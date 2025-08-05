@@ -20,13 +20,8 @@ PopupWindow {
     onOpenChanged: {
         if (open) {
             visible = true;
-            if (grabFocus)
-                grab.active = true;
             if (openFor > 0)
                 timer.restart();
-        }
-        if (!open) {
-            grab.active = false;
         }
     }
 
@@ -72,12 +67,9 @@ PopupWindow {
 
     HyprlandFocusGrab {
         id: grab
-        active: false
+        active: root.open && root.grabFocus
         windows: [root]
-        onActiveChanged: {
-            if (!active)
-                root.open = false;
-        }
+        onCleared: root.open = false
     }
 
     Timer {

@@ -22,6 +22,7 @@ BarRectangle {
                 required property var modelData
                 width: Theme.widgets.minimumHeight - 4
                 height: Theme.widgets.minimumHeight - 4
+
                 IconImage {
                     id: icon
                     asynchronous: true
@@ -54,10 +55,14 @@ BarRectangle {
                             if (mouse.button === Qt.LeftButton) {
                                 if (!item.modelData.onlyMenu) {
                                     item.modelData.activate();
+                                } else {
+                                    popup.open = true;
                                 }
                             } else if (mouse.button === Qt.MiddleButton) {
                                 item.modelData.secondaryActivate && item.modelData.secondaryActivate();
-                            } else if (mouse.button === Qt.RightButton) {}
+                            } else if (mouse.button === Qt.RightButton) {
+                                popup.open = true;
+                            }
                         }
                     }
 
@@ -67,6 +72,12 @@ BarRectangle {
                         anchor.item: icon
                         title: item.modelData.tooltipTitle || item.modelData.title
                         description: item.modelData.tooltipDescription
+                    }
+
+                    TrayPopup {
+                        id: popup
+                        open: false
+                        anchor.item: icon
                     }
 
                     Behavior on width {
