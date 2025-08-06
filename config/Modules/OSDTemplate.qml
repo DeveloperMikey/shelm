@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import qs.Services
 import qs.Settings
 import qs.Widgets
@@ -38,6 +39,8 @@ Scope {
         implicitHeight: 175
         implicitWidth: 30
         margins.right: root.shouldShowOSD ? 15 : -implicitWidth
+
+        WlrLayershell.layer: WlrLayer.Overlay
 
         Behavior on margins.right {
             NumberAnimation {
