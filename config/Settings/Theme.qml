@@ -8,27 +8,20 @@ import qs.Settings
 Singleton {
     id: root
 
-    SystemPalette {
-        id: activePalette
-        colorGroup: SystemPalette.Active
+    Item {
+        id: item
     }
 
-    SystemPalette {
-        id: inactivePalette
-        colorGroup: SystemPalette.Inactive
+    component Pallete: QtObject {
+        property color base: item.palette.active.base
+        property color accent: item.palette.active.accent
     }
 
-    SystemPalette {
-        id: disabledPalette
-        colorGroup: SystemPalette.Disabled
+    component Colors: QtObject {
+        property Pallete active: Pallete {}
     }
 
-    component ActivePalette: QtObject {
-        property color base: activePalette.base
-        property color highlight: activePalette.highlight
-    }
-
-    property alias active: adapter.active
+    property alias colors: adapter.colors
 
     property string themeFile: Settings.settingsDir + "Theme.json"
 
@@ -76,7 +69,7 @@ Singleton {
 
         JsonAdapter {
             id: adapter
-            property ActivePalette active: ActivePalette {}
+            property Colors colors: Colors {}
             property string backgroundPrimary: "#282828"
 
             property string textPrimary: "#fbf1c7"

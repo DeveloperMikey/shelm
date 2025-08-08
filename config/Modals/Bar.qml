@@ -14,7 +14,7 @@ Scope {
             id: bar
             required property var modelData
             screen: modelData
-            color: Theme.active.base
+            color: Theme.colors.active.base
 
             implicitHeight: Theme.barHeight + (Theme.barSeperator ? 2 : 0)
 
@@ -68,7 +68,7 @@ Scope {
                 sourceComponent: Rectangle {
                     id: seperator
                     implicitHeight: 2
-                    color: Theme.active.highlight
+                    color: Theme.colors.active.accent
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
