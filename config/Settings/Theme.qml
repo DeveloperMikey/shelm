@@ -10,21 +10,48 @@ Singleton {
 
     Item {
         id: item
-        Component.onCompleted: console.log(palette.active.highlight)
+    }
+
+    property color red: "#c04040"
+
+    component ButtonColors: QtObject {
+        required property color normal
+        required property color accent
+        property color hover: Qt.tint(normal, Qt.alpha(accent, 0.2))
+        property color pressed: Qt.tint(normal, Qt.alpha(accent, 0.1))
+        property color selected: Qt.tint(normal, Qt.alpha(accent, 0.4))
     }
 
     component Colors: QtObject {
+        id: clrs
         property color base: item.palette.active.base
         property color accent: item.palette.active.accent
         property color text: item.palette.active.text
         property color light: item.palette.active.light
         property color mid: item.palette.active.mid
+        property color midlight: item.palette.active.midlight
 
-        property color hover: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.2))
-        property color pressed: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.1))
-        property color selected: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.4))
+        property ButtonColors button: ButtonColors {
+            normal: clrs.light
+            accent: clrs.accent
+        }
 
-        property color border: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.base, 0.3))
+        property ButtonColors midlightButton: ButtonColors {
+            normal: clrs.midlight
+            accent: clrs.accent
+        }
+
+        property ButtonColors redLight: ButtonColors {
+            normal: Qt.tint(clrs.light, Qt.alpha("#c04040", 0.3))
+            accent: "#c04040"
+        }
+
+        property ButtonColors redMidlight: ButtonColors {
+            normal: Qt.tint(clrs.midlight, Qt.alpha("#c04040", 0.2))
+            accent: "#c04040"
+        }
+
+        property color border: Qt.tint(light, Qt.alpha(base, 0.3))
     }
 
     property alias colors: adapter.colors

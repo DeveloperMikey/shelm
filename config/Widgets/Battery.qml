@@ -13,39 +13,57 @@ Loader {
     required property var bar
     active: BatteryService.batteryAvailable
 
-    sourceComponent: Rectangle {
+    sourceComponent: ClippingRectangle {
         id: battery
-        color: Theme.widgets.battery.backgroundColor
         anchors.centerIn: parent
         radius: Theme.cornerRadius
         implicitHeight: row.height + 4
         implicitWidth: Math.max(row.width + 10, Theme.widgets.battery.minimumSize)
 
-        border.width: 1
-        border.color: mouse.containsMouse ? Theme.widgets.hoverBorderColor : Theme.widgets.borderColor
-
-        Behavior on border.color {
+        Behavior on color {
             ColorAnimation {
                 duration: 90
             }
         }
 
-        ClippingRectangle {
-            radius: Theme.cornerRadius
-            implicitHeight: parent.height - 2
-            implicitWidth: parent.width - 2
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 1
-            color: "transparent"
-            Rectangle {
-                implicitWidth: (parent.width * BatteryService.batteryLevel / 100) - 1
-                implicitHeight: parent.height
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: 1
-                color: {
-                    BatteryService.batteryLevel <= 30 ? Theme.widgets.battery.criticalColor : Theme.widgets.backgroundColor;
+        color: {
+            if (BatteryService.batteryLevel <= 30) {
+                if (mouse.pressed)
+                    return Theme.colors.redMidlight.pressed;
+                if (mouse.containsMouse)
+                    return Theme.colors.redMidlight.hover;
+                return Theme.colors.redMidlight.normal;
+            } else {
+                if (mouse.pressed)
+                    return Theme.colors.midlightButton.pressed;
+                if (mouse.containsMouse)
+                    return Theme.colors.midlightButton.hover;
+                return Theme.colors.midlightButton.normal;
+            }
+        }
+
+        Rectangle {
+            implicitWidth: (parent.width * BatteryService.batteryLevel / 100)
+            implicitHeight: parent.height
+            color: {
+                if (BatteryService.batteryLevel <= 30) {
+                    if (mouse.pressed)
+                        return Theme.colors.redLight.pressed;
+                    if (mouse.containsMouse)
+                        return Theme.colors.redLight.hover;
+                    return Theme.colors.redLight.normal;
+                } else {
+                    if (mouse.pressed)
+                        return Theme.colors.button.pressed;
+                    if (mouse.containsMouse)
+                        return Theme.colors.button.hover;
+                    return Theme.colors.button.normal;
+                }
+            }
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: 90
                 }
             }
         }

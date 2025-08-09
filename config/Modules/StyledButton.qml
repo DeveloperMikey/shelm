@@ -6,14 +6,16 @@ StyledRectangle {
     property alias mouse: mouse
     property bool selected: false
 
+    border.width: 0
+
     color: {
         if (selected)
-            return Theme.colors.selected;
+            return Theme.colors.button.selected;
         if (mouse.pressed)
-            return Theme.colors.pressed;
+            return Theme.colors.button.pressed;
         if (mouse.containsMouse)
-            return Theme.colors.hover;
-        return Theme.colors.light;
+            return Theme.colors.button.hover;
+        return Theme.colors.button.normal;
     }
 
     MouseArea {

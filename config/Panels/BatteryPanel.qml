@@ -30,7 +30,6 @@ ColumnLayout {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 radius: Theme.cornerRadius
-                border.width: 1
 
                 Icon {
                     text: holder.modelData.icon
