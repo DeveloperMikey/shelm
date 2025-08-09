@@ -9,7 +9,7 @@ Rectangle {
     required property color fillColor
     required property color overflowColor
 
-    color: Theme.widgets.backgroundColor
+    color: Theme.colors.light
     anchors.fill: parent
     radius: Theme.cornerRadius
 

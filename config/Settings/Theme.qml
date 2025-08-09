@@ -42,13 +42,13 @@ Singleton {
         }
 
         property ButtonColors redLight: ButtonColors {
-            normal: Qt.tint(clrs.light, Qt.alpha("#c04040", 0.3))
-            accent: "#c04040"
+            normal: Qt.tint(clrs.light, Qt.alpha(root.red, 0.3))
+            accent: root.red
         }
 
         property ButtonColors redMidlight: ButtonColors {
-            normal: Qt.tint(clrs.midlight, Qt.alpha("#c04040", 0.2))
-            accent: "#c04040"
+            normal: Qt.tint(clrs.midlight, Qt.alpha(root.red, 0.2))
+            accent: root.red
         }
 
         property color border: Qt.tint(light, Qt.alpha(base, 0.3))
@@ -66,7 +66,6 @@ Singleton {
 
     property alias barHeight: adapter.barHeight
     property alias barSeperator: adapter.barSeperator
-    property alias seperatorColor: adapter.seperatorColor
 
     component FontFamily: QtObject {
         property string sans: "IBM Plex Sans"
@@ -100,7 +99,7 @@ Singleton {
             property Colors colors: Colors {}
 
             property FontStuff font: FontStuff {}
-            property Widgets.Widgets widgets: Widgets.Widgets {}
+            property Widgets widgets: Widgets {}
 
             property int cornerRadius: 9
             property int contentSpacing: 2
