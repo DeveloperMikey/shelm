@@ -10,25 +10,26 @@ Singleton {
 
     Item {
         id: item
-    }
-
-    component Pallete: QtObject {
-        property color base: item.palette.active.base
-        property color accent: item.palette.active.accent
+        Component.onCompleted: console.log(palette.active.highlight)
     }
 
     component Colors: QtObject {
-        property Pallete active: Pallete {}
+        property color base: item.palette.active.base
+        property color accent: item.palette.active.accent
+        property color text: item.palette.active.text
+        property color light: item.palette.active.light
+        property color mid: item.palette.active.mid
+
+        property color hover: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.2))
+        property color pressed: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.1))
+        property color selected: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.accent, 0.4))
+
+        property color border: Qt.tint(item.palette.active.light, Qt.alpha(item.palette.active.base, 0.3))
     }
 
     property alias colors: adapter.colors
 
     property string themeFile: Settings.settingsDir + "Theme.json"
-
-    property alias backgroundPrimary: adapter.backgroundPrimary
-
-    property alias textPrimary: adapter.textPrimary
-    property alias textSecondary: adapter.textSecondary
 
     property alias font: adapter.font
     property alias widgets: adapter.widgets
@@ -70,10 +71,6 @@ Singleton {
         JsonAdapter {
             id: adapter
             property Colors colors: Colors {}
-            property string backgroundPrimary: "#282828"
-
-            property string textPrimary: "#fbf1c7"
-            property string textSecondary: "#a89984"
 
             property FontStuff font: FontStuff {}
             property Widgets.Widgets widgets: Widgets.Widgets {}

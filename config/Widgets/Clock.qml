@@ -19,7 +19,7 @@ BarRectangle {
             visible: active
             sourceComponent: StyledText {
                 text: "•"
-                color: Theme.textSecondary
+                color: Theme.colors.mid
             }
         }
 

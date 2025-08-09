@@ -2,11 +2,10 @@ import QtQuick
 import Quickshell
 import qs.Modules
 
-BarRectangle {
+BarButton {
     id: root
     required property var bar
 
-    clickable: true
     Icon {
         text: "wifi"
     }

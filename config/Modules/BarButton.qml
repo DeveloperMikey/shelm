@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import qs.Settings
 import qs.Modules
 
-StyledRectangle {
+StyledButton {
     id: root
     property bool padding: true
     implicitHeight: Math.max(Theme.widgets.minimumHeight, layout.height + (padding ? 5 : 0))

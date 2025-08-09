@@ -30,10 +30,10 @@ PopupWindow {
 
     Rectangle {
         id: menu
-        color: Theme.backgroundPrimary
+        color: Theme.colors.base
         radius: Theme.cornerRadius
         border.width: 1
-        border.color: Theme.seperatorColor
+        border.color: palette.active.accent
         implicitHeight: Math.max(layout.height, 1)
         implicitWidth: Math.max(layout.width, 1)
 

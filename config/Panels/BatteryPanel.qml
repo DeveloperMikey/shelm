@@ -23,15 +23,15 @@ ColumnLayout {
                     icon: "rocket_launch"
                 },
             ]
-            delegate: Rectangle {
+            delegate: StyledButton {
                 id: holder
                 required property var modelData
+                selected: PowerProfiles.profile === modelData.profile
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 radius: Theme.cornerRadius
-                color: PowerProfiles.profile === modelData.profile ? "#665c54" : Theme.widgets.backgroundColor
                 border.width: 1
-                border.color: mouse.containsMouse ? Theme.widgets.hoverBorderColor : Theme.widgets.borderColor
+
                 Icon {
                     text: holder.modelData.icon
                     font.pixelSize: Theme.font.size.large
@@ -46,12 +46,7 @@ ColumnLayout {
                     }
                 }
 
-                MouseArea {
-                    id: mouse
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    onPressed: PowerProfiles.profile = holder.modelData.profile
-                }
+                mouse.onPressed: PowerProfiles.profile = modelData.profile
             }
         }
     }
