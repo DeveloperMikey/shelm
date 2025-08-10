@@ -6,7 +6,7 @@ import qs.Panels
 Popup {
     id: root
     grabFocus: true
-    openFor: 2000
+    openFor: 5000
     BatteryPanel {
         Layout.margins: 5
         Layout.preferredWidth: 150

@@ -3,15 +3,16 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import qs.Settings
-import qs.Modules
 
 PopupWindow {
     id: root
     property bool open: false
     property bool grabFocus: false
     property int openFor: 0
+    property Rectangle rect: menu
 
     color: "transparent"
+    visible: false
 
     anchor.margins.top: Theme.barHeight + 5
     anchor.margins.left: (anchor.item.width - width) / 2

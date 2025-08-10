@@ -8,13 +8,7 @@ StyledButton {
     property bool padding: true
     implicitHeight: Math.max(Theme.widgets.minimumHeight, layout.height + (padding ? 5 : 0))
     implicitWidth: layout.width + (padding ? 12 : 8)
-    visible: layout.visible
-
-    RowLayout {
-        id: layout
-        spacing: 0
-        anchors.centerIn: parent
-    }
+    //visible: layout.visible
 
     Behavior on color {
         ColorAnimation {
@@ -27,6 +21,4 @@ StyledButton {
             duration: 100
         }
     }
-
-    default property alias content: layout.children
 }

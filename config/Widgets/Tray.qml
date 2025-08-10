@@ -8,6 +8,7 @@ import qs.Modals
 import qs.Settings
 
 BarRectangle {
+    id: rect
     required property var bar
 
     visible: items.count > 0
@@ -42,7 +43,6 @@ BarRectangle {
                     height: Theme.widgets.minimumHeight - 2
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenterOffset: 1
 
                     MouseArea {
                         id: mouse
@@ -69,7 +69,8 @@ BarRectangle {
                     TrayTooltip {
                         id: tooltip
                         open: mouse.containsMouse
-                        anchor.item: icon
+                        anchor.item: item
+                        anchor.margins.top: Theme.barHeight
                         title: item.modelData.tooltipTitle || item.modelData.title
                         description: item.modelData.tooltipDescription
                     }
@@ -77,7 +78,10 @@ BarRectangle {
                     TrayPopup {
                         id: popup
                         open: false
-                        anchor.item: icon
+                        anchor.item: item
+                        anchor.margins.top: Theme.barHeight
+                        menu: item.modelData.menu
+                        //anchor.margins.left: item.x + (icon.width / 2) - (width / 2)
                     }
 
                     Behavior on width {
