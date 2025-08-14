@@ -34,9 +34,8 @@ ColumnLayout {
                 Icon {
                     text: holder.modelData.icon
                     font.pixelSize: Theme.font.size.large
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: 1
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    Layout.alignment: Qt.AlignCenter
+                    Layout.topMargin: 2
                 }
 
                 Behavior on color {
